@@ -66,7 +66,7 @@ const NavbarHook = () => {
     <header className="header">
       <nav className="nav container">
         <NavLink to="/" className="nav__logo">
-          Navigation Bar
+          Elvis Alas
         </NavLink>
 
         {isMobile && (
