@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginStyles from '../styles/LoginStyles ';
+import LoginStyles from '../styles/LoginStyles';
 //import { News } from './pages/News';
 
 function Login({ onLogin }) {
@@ -28,7 +28,7 @@ function Login({ onLogin }) {
       if (data.success) {
         localStorage.setItem('nombre_usuario', dataForm.nombre_usuario);
         onLogin(dataForm.nombre_usuario); 
-        navigate('/news');
+        navigate('/menu');
 
       } else {
         Swal.fire({

@@ -1,17 +1,17 @@
 import React from "react";
 import NavbarHook from '../NavbarHook/NavbarHook.jsx'
 import  "../NavbarHook/NavbarHook.css";
+import '../../styles/index.css'
 
-
-const News = () => {
+const Menu = () => {
 
   return (
 
     <div className="main-content">
         <NavbarHook />
-      <p>News</p>
+      
     </div>
   );
 };
 
-export default News;
+export default Menu;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
- import News from "./components/pages/News";
-// import NavbarHook from "./components/NavbarHook/NavbarHook";
+ import Menu from "./components/pages/Menu";
+import RegistrarUsuario from './components/pages/RegistrarUsuario'
 
 const App = () => {
   const [usuario, setUsuario] = useState('');
@@ -19,7 +19,8 @@ const App = () => {
 
       <Routes>
        <Route path='/' element={<Login onLogin={handleLogin} />} />
-        <Route path="/news" element={<News />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/RegistrarUsuario" element={<RegistrarUsuario/>}></Route>
       </Routes>
       </main>
     </BrowserRouter>
