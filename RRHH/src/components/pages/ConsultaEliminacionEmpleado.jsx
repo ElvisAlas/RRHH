@@ -36,19 +36,19 @@ function ConsultaEliminacionEmpleado() {
 
   const handleEliminarRegistro = async (id) => {
     try {
-    const   response=  await axios.delete(`http://localhost:4000/api/empleados/${id}`);
+      const response = await axios.delete(`http://localhost:4000/api/empleados/${id}`);
       fetchEmpleados();
 
-      const data = response.data[0];    
+      const data = response.data[0];
 
-      if (data.mensaje==="Eliminado") {
-       
+      if (data.mensaje === "Eliminado") {
+
         Swal.fire({
-            icon: 'success',
-            title: 'Éxito',
-            text: 'Empleado Eliminado exitosamente',
-          });
-        setIdentidad(''); 
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Empleado Eliminado exitosamente',
+        });
+        setIdentidad('');
         setNombre('');
 
       } else {
@@ -70,18 +70,18 @@ function ConsultaEliminacionEmpleado() {
   const handleActualizarEmpleado = async () => {
     if (!selectedEmpleado) return;
     try {
-   const  response= await axios.put(`http://localhost:4000/api/empleados/${selectedEmpleado.id}`, { identidad, nombre });
+      const response = await axios.put(`http://localhost:4000/api/empleados/${selectedEmpleado.id}`, { identidad, nombre });
       fetchEmpleados();
-      const data = response.data[0];    
+      const data = response.data[0];
 
-      if (data.mensaje==="Actualizado") {
-       
+      if (data.mensaje === "Actualizado") {
+
         Swal.fire({
-            icon: 'success',
-            title: 'Éxito',
-            text: 'Empleado Actualizado exitosamente',
-          });
-        setIdentidad(''); 
+          icon: 'success',
+          title: 'Éxito',
+          text: 'Empleado Actualizado exitosamente',
+        });
+        setIdentidad('');
         setNombre('');
         setModalShow(false);
       } else {
@@ -94,7 +94,7 @@ function ConsultaEliminacionEmpleado() {
 
     } catch (error) {
 
-      setNotification('Error al actualizar el empleado. '&  error);
+      setNotification('Error al actualizar el empleado. ' & error);
     }
   };
 
@@ -107,8 +107,9 @@ function ConsultaEliminacionEmpleado() {
     fetchEmpleados();
   };
   return (
-    <div className="container">
-      <h1>Lista de Empleados</h1>
+    
+    <div >
+      <h1 style={{marginLeft:'305px'}}>Lista de Empleados</h1>
 
       {notification && (
         <div className="alert alert-success" role="alert">
@@ -120,6 +121,9 @@ function ConsultaEliminacionEmpleado() {
           Empleado agregado exitosamente.
         </Alert>
       )}
+      <div className="container " style={{ maxHeight: "80vh", overflowY: "auto" }}>
+
+      
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -141,7 +145,7 @@ function ConsultaEliminacionEmpleado() {
           ))}
         </tbody>
       </Table>
-
+      </div>
       <Modal show={modalShow} onHide={() => setModalShow(false)}>
         <ModalHeader closeButton>
           Información del Empleado
@@ -170,7 +174,7 @@ function ConsultaEliminacionEmpleado() {
         </ModalFooter>
       </Modal>
 
-  
+
     </div>
   );
 }
