@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Table, Button, Modal, ModalBody, ModalHeader, ModalFooter, Form, Alert } from 'react-bootstrap';
 import Swal from 'sweetalert2';
+import { BiSearch, BiTrash } from 'react-icons/bi'; // Importar los iconos de Bootstrap
 
 
 function ConsultaEliminacionEmpleado() {
@@ -22,6 +23,7 @@ function ConsultaEliminacionEmpleado() {
     try {
       const response = await axios.get('http://localhost:4000/api/empleados');
       setEmpleados(response.data);
+      console.log(response.data)
     } catch (error) {
       console.error('Error al obtener la lista de empleados:', error);
     }
@@ -107,9 +109,9 @@ function ConsultaEliminacionEmpleado() {
     fetchEmpleados();
   };
   return (
-    
+
     <div >
-      <h1 style={{marginLeft:'305px'}}>Lista de Empleados</h1>
+      <h1 style={{ marginLeft: '305px' }}>Lista de Empleados</h1>
 
       {notification && (
         <div className="alert alert-success" role="alert">
@@ -123,32 +125,46 @@ function ConsultaEliminacionEmpleado() {
       )}
       <div className="container " style={{ maxHeight: "80vh", overflowY: "auto" }}>
 
-      
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {empleados.map((empleado) => (
-            <tr key={empleado.id}>
-              <td>{empleado.id}</td>
-              <td>{empleado.nombre}</td>
-              <td>
-                <Button variant="info" onClick={() => handleVerInformacion(empleado)}>Ver Información</Button>{' '}
-                <Button variant="danger" onClick={() => handleEliminarRegistro(empleado.id)}>Eliminar Registro</Button>
-              </td>
+
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Foto</th>
+              <th>Acciones</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {empleados.map((empleado) => (
+              <tr key={empleado.id}>
+                <td>{empleado.id}</td>
+                <td>{empleado.nombre}</td>
+                <td>
+
+                  {empleado.foto ? (
+                    <img src={`data:image/jpeg;base64,${empleado.foto}`} alt="Foto de Empleado" style={{ maxWidth: '100px', maxHeight: '100px' }} />
+                  ) : (
+                    <img src="https://tienda.cderma.com.co/wp-content/uploads/2022/05/IMAGEN-NO-DISPONIBLE.png" alt="Imagen Predeterminada" style={{ maxWidth: '100px', maxHeight: '100px' }} />
+                  )}
+
+                </td>
+             
+                  <td>
+                    <BiSearch style={{ cursor: 'pointer' ,color:'blue'}} onClick={() => handleVerInformacion(empleado)} title="Ver Información" />
+                    {' '}
+                    <BiTrash style={{ cursor: 'pointer',color:'red' }} onClick={() => handleEliminarRegistro(empleado.id)} title="Eliminar Registro" />
+                  </td>
+            
+              </tr>
+            ))}
+          </tbody>
+
+        </Table>
       </div>
       <Modal show={modalShow} onHide={() => setModalShow(false)}>
         <ModalHeader closeButton>
-          Información del Empleado
+          Información del Empleado / Actualizar Empleado
         </ModalHeader>
         <ModalBody>
           {selectedEmpleado && (
