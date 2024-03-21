@@ -23,11 +23,11 @@ function Login({ onLogin }) {
     try {
       const response = await axios.get(`http://localhost:4000/api/validarUsuario/${dataForm.nombre_usuario}/${dataForm.pass}`);
       const data = response.data;
-      console.log(data)
+     
 
       if (data.success) {
-        localStorage.setItem('nombre_usuario', dataForm.nombre_usuario);
-        onLogin(dataForm.nombre_usuario); 
+  
+  
         navigate('/menu');
 
       } else {

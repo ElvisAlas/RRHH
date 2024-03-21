@@ -41,40 +41,23 @@ const NavbarHook = () => {
         </li>
         <li>
           <NavLink
-            to="/about-us"
+            to="/NuevoEmpleado"
             className={linkClassName}
             onClick={closeMobileMenu}
           >
-            About Us
+            Nuevo Empleado
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="/favorite"
+            to="/ConsultaEliminacionEmpleado"
             className={linkClassName}
             onClick={closeMobileMenu}
           >
-            Favorite
+            Consultar / Eliminar Empleados
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/location"
-            className={linkClassName}
-            onClick={closeMobileMenu}
-          >
-            Location
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/get-started"
-            className={`${linkClassName} ${buttonClassName}`}
-            onClick={closeMobileMenu}
-          >
-            Get Started
-          </NavLink>
-        </li>
+
       </ul>
     );
   };

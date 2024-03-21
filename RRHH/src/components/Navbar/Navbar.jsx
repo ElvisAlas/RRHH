@@ -43,36 +43,23 @@ const Navbar = () => {
             </li>
             <li className="nav__item">
               <NavLink
-                to="/about-us"
+                to="/NuevoEmpleado"
                 className="nav__link"
                 onClick={closeMenuOnMobile}
               >
-                About Us
+                Nuevo Empleado
               </NavLink>
             </li>
             <li className="nav__item">
               <NavLink
-                to="/favorite"
+                to="/ConsultaEliminacionEmpleado"
                 className="nav__link"
                 onClick={closeMenuOnMobile}
               >
-                Favorite
+                   Consultar / Eliminar Empleados
               </NavLink>
             </li>
-            <li className="nav__item">
-              <NavLink
-                to="/location"
-                className="nav__link"
-                onClick={closeMenuOnMobile}
-              >
-                Location
-              </NavLink>
-            </li>
-            <li className="nav__item">
-              <NavLink to="/get-started" className="nav__link nav__cta">
-                Get Started
-              </NavLink>
-            </li>
+
           </ul>
           <div className="nav__close" id="nav-close" onClick={toggleMenu}>
             <IoClose />
