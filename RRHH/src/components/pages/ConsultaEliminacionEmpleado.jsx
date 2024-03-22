@@ -143,6 +143,7 @@ function ConsultaEliminacionEmpleado() {
                 <td>
 
                   {empleado.foto ? (
+                  
                     <img src={`data:image/jpeg;base64,${empleado.foto}`} alt="Foto de Empleado" style={{ maxWidth: '100px', maxHeight: '100px' }} />
                   ) : (
                     <img src="https://tienda.cderma.com.co/wp-content/uploads/2022/05/IMAGEN-NO-DISPONIBLE.png" alt="Imagen Predeterminada" style={{ maxWidth: '100px', maxHeight: '100px' }} />

@@ -20,20 +20,22 @@ const NuevoEmpleadoForm = () => {
   };
 
   const handleImagenChange = (event) => {
-    const file = event.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
+    
+     const file = event.target.files[0];
+     console.log(file)
+     setImagen(file);
+    // if (file) {
+    //   const reader = new FileReader();
+    //   reader.onloadend = () => {
   
-        const base64Image = reader.result.substring(reader.result.indexOf(',') + 1);
-        setImagen(base64Image);
+    //     const base64Image = reader.result.substring(reader.result.indexOf(',') + 1);
+    //     setImagen(base64Image);
 
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setImagen(null);
-    }
+    //   };
+    //   reader.readAsDataURL(file);
+    // } else {
+    //   setImagen(null);
+    // }
   };
   
   
